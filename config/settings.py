@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Core env
 # ------------------------------------------------------------
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key-change-me")
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 # In production, use env var: ALLOWED_HOSTS="a.com,b.com,xyz.onrender.com"
 if DEBUG:
@@ -149,7 +149,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.streamsofjoysouthlondon.org",
     "https://streamsofjoysouthlondonsoj.netlify.app",
 
-
     # Local dev (optional)
     "http://127.0.0.1:5500",
     "http://localhost:5500",
@@ -167,6 +166,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://streamsofjoysouthlondonsoj.netlify.app",
     "https://streamsofjoysouthlondon.org",
     "https://www.streamsofjoysouthlondon.org",
+    "https://soj-south-backend.onrender.com",
 ]
 
 # ------------------------------------------------------------
@@ -178,3 +178,15 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
