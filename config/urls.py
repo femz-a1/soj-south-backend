@@ -18,10 +18,19 @@ from django.contrib import admin
 from django.urls import path, include
 from django.http import JsonResponse
 
+def home(request):
+    return JsonResponse({
+        "service": "SOJ South London API",
+        "health": "/health/",
+        "admin": "/admin/",
+        "api": "/api/"
+    })
+
 def health(request):
     return JsonResponse({"ok": True})
 
 urlpatterns = [
+    path("", home),
     path("health/", health),
     path("admin/", admin.site.urls),
     path("api/", include("leads.urls")),
