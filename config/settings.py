@@ -144,10 +144,11 @@ REST_FRAMEWORK = {
 # CORS (Netlify + custom domains)
 # ------------------------------------------------------------
 CORS_ALLOWED_ORIGINS = [
-    # Your Netlify + custom domains
-    "https://streamsofjoysouthlondonsoj.netlify.app",
+    # Your Netlify + custom domains (add more as needed)
     "https://streamsofjoysouthlondon.org",
     "https://www.streamsofjoysouthlondon.org",
+    "https://streamsofjoysouthlondonsoj.netlify.app",
+
 
     # Local dev (optional)
     "http://127.0.0.1:5500",
