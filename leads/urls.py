@@ -1,5 +1,6 @@
 from django.urls import path
 from django.http import JsonResponse
+from .views import LeadCreateView
 
 # temporary test route so /api/ works immediately
 def api_home(request):
@@ -7,4 +8,5 @@ def api_home(request):
 
 urlpatterns = [
     path("", api_home),
+    path("leads/", LeadCreateView.as_view(), name="lead-create"),
 ]

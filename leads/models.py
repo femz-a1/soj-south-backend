@@ -2,13 +2,13 @@ from django.db import models
 
 class Lead(models.Model):
     INTEREST_CHOICES = [
-        ("member", "I want to join"),
-        ("volunteer", "I want to volunteer"),
-        ("partner", "I want to partner"),
+        ("member", "Join as member"),
+        ("volunteer", "Volunteer"),
+        ("partner", "Partner"),
         ("other", "Other"),
     ]
 
-    full_name = models.CharField(max_length=100)
+    full_name = models.CharField(max_length=120)
     email = models.EmailField()
     phone = models.CharField(max_length=30, blank=True)
     interest = models.CharField(max_length=20, choices=INTEREST_CHOICES, default="member")

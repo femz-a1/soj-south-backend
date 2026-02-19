@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework import generics, permissions
+from .models import Lead
+from .serializers import LeadSerializer
 
-# Create your views here.
+class LeadCreateView(generics.CreateAPIView):
+    queryset = Lead.objects.all()
+    serializer_class = LeadSerializer
+    permission_classes = [permissions.AllowAny]
