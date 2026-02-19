@@ -23,7 +23,7 @@ def home(request):
         "service": "SOJ South London API",
         "health": "/health/",
         "admin": "/admin/",
-        "api": "/api/"
+        "api": "/api/",
     })
 
 def health(request):
