@@ -21,16 +21,16 @@ from django.http import JsonResponse
 def home(request):
     return JsonResponse({
         "service": "SOJ South London API",
-        "health": "/health/",
-        "admin": "/admin/",
-        "api": "/api/",
+        "health_check": "/health/",
+        "admin_panel": "/admin/",
+        "api_root": "/api/"
     })
 
 def health(request):
     return JsonResponse({"ok": True})
 
 urlpatterns = [
-    path("", home),
+    path("", home),  # THIS FIXES ROOT 404
     path("health/", health),
     path("admin/", admin.site.urls),
     path("api/", include("leads.urls")),
