@@ -1,19 +1,23 @@
 from django.db import models
 
 class Lead(models.Model):
-    INTEREST_CHOICES = [
-        ("member", "Join as member"),
-        ("volunteer", "Volunteer"),
-        ("partner", "Partner"),
-        ("other", "Other"),
-    ]
-
-    full_name = models.CharField(max_length=120)
+    full_name = models.CharField(max_length=120, blank=True)
     email = models.EmailField()
     phone = models.CharField(max_length=30, blank=True)
-    interest = models.CharField(max_length=20, choices=INTEREST_CHOICES, default="member")
-    message = models.TextField(blank=True)
+
+    # preferences (your checkboxes)
+    wants_launch_updates = models.BooleanField(default=False)
+    wants_sunday_reminders = models.BooleanField(default=False)
+    wants_event_notifications = models.BooleanField(default=False)
+    wants_whatsapp = models.BooleanField(default=False)
+    wants_to_volunteer = models.BooleanField(default=False)
+    is_newcomer = models.BooleanField(default=False)
+    consent = models.BooleanField(default=False)
+
+    # helpful for footer signups
+    source = models.CharField(max_length=30, blank=True)  # "footer", "modal", etc.
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.full_name} ({self.interest})"
+        return self.email

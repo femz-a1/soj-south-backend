@@ -8,5 +8,5 @@ def api_home(request):
 
 urlpatterns = [
     path("", api_home),
-    path("leads/", LeadCreateView.as_view(), name="lead-create"),
+    path("leads/", LeadCreateView.as_view()),
 ]
