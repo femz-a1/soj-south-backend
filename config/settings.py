@@ -190,3 +190,12 @@ CORS_ALLOW_HEADERS = [
     "x-csrftoken",
     "x-requested-with",
 ]
+
+# ------------------------------------------------------------
+# Email (SendGrid)
+# ------------------------------------------------------------
+EMAIL_PROVIDER = os.environ.get("EMAIL_PROVIDER", "")
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "no-reply@sojsouthlondon.org")
+ADMIN_NOTIFY_EMAIL = os.environ.get("ADMIN_NOTIFY_EMAIL", "")
+
+SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "")
