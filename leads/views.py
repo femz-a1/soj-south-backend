@@ -20,15 +20,15 @@ class LeadCreateView(generics.CreateAPIView):
         # 1️⃣ Send welcome email
         if lead.email:
             html = render_to_string(
-                "emails/welcome.html",
-                {
-                    "name": lead.full_name,
-                    "year": timezone.now().year,
-                    "logo_url": "https://streamsofjoysouthlondon.org/assets/logo.png",
-                    "directions_url": "https://maps.google.com?q=South+London",
-                    "whatsapp_url": "https://whatsapp.com/channel/YOUR_REAL_LINK",
-                },
-            )
+    "emails/welcome.html",
+    {
+        "name": lead.full_name,
+        "year": timezone.now().year,
+        "logo_url": "https://streamsofjoysouthlondon.org/assets/images/email-logo.png",
+        "directions_url": "https://www.google.com/maps/search/?api=1&query=51.4467903,-0.0197191",
+        "whatsapp_url": "https://whatsapp.com/channel/0029VbCHgZV7dmeS4VRw9a0M",
+    },
+)
 
             try:
                 send_email(
